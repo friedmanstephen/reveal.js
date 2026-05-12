@@ -5,158 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>StudioT · Schulich's Next Chapter</title>
 
-    <!-- Reveal.js Core Styles -->
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/white.css" />
 
-    <!-- StudioT Branding Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* Global Typography for StudioT */
+        :root { --schulich-blue: #0F4C92; --studiot-green: #22A04A; }
+        body { background: #fff; }
         .display { font-family:'Poppins', sans-serif; font-weight:700; letter-spacing:-0.035em; }
         .mark { font-family:'Poppins', sans-serif; font-weight:700; letter-spacing:-0.04em; }
         .mono { font-family:'JetBrains Mono', monospace; }
-        .num { font-family:'Poppins', sans-serif; font-weight:700; }
         
-        /* Formatting Fix: Prevent Reveal from overriding your absolute positioning */
+        /* Layout Fix: Absolute coordinate locking */
+        .reveal .slides { text-align: left; }
         .reveal .slides section {
             padding: 0;
-            height: 1080px !important;
-            width: 1920px !important;
+            top: 0 !important; left: 0 !important;
+            height: 1080px !important; width: 1920px !important;
         }
-        .slide-container { 
-            margin: 0 auto; 
-            transform-origin: center;
-        }
+        .slide-container { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #fff; }
+        
+        /* Global Header/Footer UI */
+        .ui-header { position: absolute; top: 0; left: 0; width: 1920px; height: 64px; background: var(--schulich-blue); z-index: 100; }
+        .ui-accent { position: absolute; top: 60px; left: 0; width: 1920px; height: 4px; background: var(--studiot-green); z-index: 101; }
+        .ui-footer-line { position: absolute; bottom: 70px; left: 100px; width: 1720px; height: 1px; background: #E2E8F0; z-index: 100; }
+        .ui-meta-left { position: absolute; top: 22px; left: 100px; color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; }
+        .ui-meta-right { position: absolute; top: 18px; right: 100px; color: #fff; font-size: 18px; font-weight: 700; letter-spacing: -0.03em; }
+        .ui-page-num { position: absolute; bottom: 30px; right: 100px; color: #6B7C93; font-size: 14px; font-weight: 500; letter-spacing: 0.18em; }
     </style>
 </head>
 <body>
     <div class="reveal">
         <div class="slides">
 
-            <!-- SLIDE 1: TITLE (Match image_df2336.png) -->
+            <!-- SLIDE 01: TITLE -->
             <section>
-                <div class="slide-container" style="position:relative; width:1920px; height:1080px; overflow:hidden; background:#FFFFFF;">
-                    <div style="position:absolute; left:0; top:0; width:1920px; height:1080px; background:radial-gradient(ellipse at 88% 18%, rgba(34,160,74,0.10) 0%, rgba(34,160,74,0) 38%), radial-gradient(ellipse at 6% 90%, rgba(15,76,146,0.10) 0%, rgba(15,76,146,0) 42%); z-index:1;"></div>
-                    <div style="position:absolute; left:0; top:0; width:14px; height:1080px; background:#0F4C92; z-index:5;"></div>
-                    <div style="position:absolute; left:0; top:760px; width:14px; height:320px; background:#22A04A; z-index:5;"></div>
-                    
-                    <!-- Branding Logo -->
-                    <div style="position:absolute; left:100px; top:84px; width:240px; height:166px; background-image:url('assets/SSB-InnovationStudio-VERT-COL.png'); background-size:contain; background-repeat:no-repeat; background-position:left center; z-index:5;"></div>
-                    
-                    <div style="position:absolute; left:1500px; top:120px; width:340px; height:24px; color:#0F4C92; font-size:13px; font-weight:600; letter-spacing:0.32em; text-transform:uppercase; text-align:right; z-index:10;">Internal · Confidential</div>
-                    <div style="position:absolute; left:1500px; top:152px; width:340px; height:24px; color:#6B7C93; font-size:14px; font-weight:500; letter-spacing:0.04em; text-align:right; z-index:10;">Office of the Dean · June 2026</div>
-                    <div style="position:absolute; left:100px; top:300px; width:1720px; height:1px; background:#E2E8F0; z-index:1;"></div>
-                    <div style="position:absolute; left:100px; top:380px; width:96px; height:8px; background:#22A04A; z-index:5;"></div>
-                    <div style="position:absolute; left:100px; top:410px; width:1200px; height:26px; color:#22A04A; font-size:16px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; z-index:10;">Executive Briefing&nbsp;&nbsp;/&nbsp;&nbsp;Strategic Realignment</div>
-                    
-                    <div class="mark" style="position:absolute; left:100px; top:460px; width:1400px; height:80px; color:#0F4C92; font-size:54px; font-weight:700; letter-spacing:-0.04em; line-height:1; z-index:10;">studio<span style="color:#22A04A;">-</span>t<span style="color:#22A04A;">.</span></div>
-                    <div class="display" style="position:absolute; left:100px; top:560px; width:1700px; height:320px; color:#0F4C92; font-size:152px; line-height:0.96; font-weight:700; letter-spacing:-0.045em; z-index:10;">Schulich's<br>Next Chapter.</div>
-                    <div style="position:absolute; left:104px; top:900px; width:1500px; height:50px; color:#3A4A66; font-size:34px; line-height:1.25; font-weight:400; letter-spacing:-0.01em; z-index:10;">A Strategic Realignment for the <span style="color:#22A04A; font-weight:600;">Agentic AI Era</span>.</div>
-                    
-                    <div class="mono" style="position:absolute; left:1720px; top:1034px; width:100px; height:24px; color:#6B7C93; font-size:13px; font-weight:500; letter-spacing:0.18em; text-align:right; z-index:10;">01 / 08</div>
+                <div class="slide-container">
+                    <div style="position:absolute; left:0; top:0; width:1920px; height:1080px; background:radial-gradient(ellipse at 88% 18%, rgba(34,160,74,0.10) 0%, rgba(34,160,74,0) 38%), radial-gradient(ellipse at 6% 90%, rgba(15,76,146,0.10) 0%, rgba(15,76,146,0) 42%);"></div>
+                    <div style="position:absolute; left:0; top:0; width:14px; height:1080px; background:var(--schulich-blue);"></div>
+                    <div style="position:absolute; left:0; top:760px; width:14px; height:320px; background:var(--studiot-green);"></div>
+                    <div style="position:absolute; left:100px; top:84px; width:240px; height:166px; background-image:url('assets/SSB-InnovationStudio-VERT-COL.png'); background-size:contain; background-repeat:no-repeat;"></div>
+                    <div class="display" style="position:absolute; left:100px; top:560px; font-size:152px; color:var(--schulich-blue); line-height:0.96;">Schulich's<br>Next Chapter.</div>
+                    <div class="ui-page-num">01 / 08</div>
                 </div>
             </section>
 
-            <!-- SLIDE 2: THE STRATEGIC SHIFT (Cards restored) -->
+            <!-- SLIDE 02: THE STRATEGIC SHIFT -->
             <section>
-                <div class="slide-container" style="position:relative; width:1920px; height:1080px; overflow:hidden; background:#FFFFFF;">
-                    <div style="position:absolute; left:0; top:0; width:1920px; height:64px; background:#0F4C92; z-index:1;"></div>
-                    <div style="position:absolute; left:0; top:60px; width:1920px; height:4px; background:#22A04A; z-index:5;"></div>
-                    <div class="display" style="position:absolute; left:100px; top:160px; width:1700px; height:130px; color:#0F4C92; font-size:78px; line-height:1.02; font-weight:700; z-index:10;">The pedagogical surface has moved.</div>
-                    
-                    <!-- Yesterday Card -->
-                    <div style="position:absolute; left:100px; top:430px; width:810px; height:520px; background:#F4F7FB; z-index:1;"></div>
-                    <div class="display" style="position:absolute; left:140px; top:500px; width:730px; color:#0F4C92; font-size:48px;">Fragmented AI Tools</div>
-                    
-                    <!-- Tomorrow Card -->
-                    <div style="position:absolute; left:1010px; top:430px; width:810px; height:520px; background:#0F4C92; z-index:1;"></div>
-                    <div class="display" style="position:absolute; left:1050px; top:500px; width:730px; color:#FFFFFF; font-size:48px;">Integrated Agentic Workflows</div>
-                    
-                    <div class="mono" style="position:absolute; left:1740px; top:1024px; width:80px; height:24px; color:#6B7C93; font-size:14px; text-align:right; z-index:10;">02 / 08</div>
+                <div class="slide-container">
+                    <div class="ui-header"></div><div class="ui-accent"></div>
+                    <div class="ui-meta-left">02&nbsp;&nbsp;·&nbsp;&nbsp;The Strategic Shift</div>
+                    <div class="ui-meta-right" class="mark">studio<span style="color:var(--studiot-green)">-</span>t<span style="color:var(--studiot-green)">.</span> June 2026</div>
+                    <div class="display" style="position:absolute; left:100px; top:160px; font-size:78px; color:var(--schulich-blue);">The pedagogical surface has moved.</div>
+                    <div style="position:absolute; left:100px; top:430px; width:810px; height:520px; background:#F4F7FB; border-left:6px solid #94A3B8; padding:40px; box-sizing:border-box;">
+                        <div class="display" style="font-size:48px; color:var(--schulich-blue); margin-bottom:20px;">Fragmented AI Tools</div>
+                        <p style="font-family:'Inter'; font-size:18px; line-height:1.6;">Faculty and students each adopt isolated chat assistants, with no shared standards or oversight.</p>
+                    </div>
+                    <div style="position:absolute; left:1010px; top:430px; width:810px; height:520px; background:var(--schulich-blue); border-left:6px solid var(--studiot-green); padding:40px; box-sizing:border-box;">
+                        <div class="display" style="font-size:48px; color:#fff; margin-bottom:20px;">Integrated Agentic Workflows</div>
+                        <p style="font-family:'Inter'; font-size:18px; color:#C9D9EF; line-height:1.6;">An institutional system where AI agents act as designed pedagogical partners — scoped, audited, owned.</p>
+                    </div>
+                    <div class="ui-page-num">02 / 08</div>
                 </div>
             </section>
 
-            <!-- SLIDE 3: MARKET REALITY (Exposure Chart Restored) -->
+            <!-- SLIDE 03: THE MARKET REALITY -->
             <section>
-                <div class="slide-container" style="position:relative; width:1920px; height:1080px; overflow:hidden; background:#FFFFFF;">
-                    <div style="position:absolute; left:0; top:0; width:1920px; height:64px; background:#0F4C92; z-index:1;"></div>
-                    <div class="display" style="position:absolute; left:100px; top:160px; width:1700px; color:#0F4C92; font-size:74px;">Our graduates' core tasks are now in high-exposure zones.</div>
-                    
-                    <!-- Bar Chart -->
-                    <div style="position:absolute; left:480px; top:460px; width:894px; height:64px; background:#22A04A; z-index:5;"></div>
-                    <div class="num" style="position:absolute; left:1384px; top:476px; color:#0F4C92; font-size:32px;">74.5%</div>
-                    
-                    <div style="position:absolute; left:480px; top:610px; width:778px; height:64px; background:#22A04A; opacity:0.88; z-index:5;"></div>
-                    <div class="num" style="position:absolute; left:1268px; top:626px; color:#0F4C92; font-size:32px;">64.8%</div>
-                    
-                    <div class="mono" style="position:absolute; left:1740px; top:1040px; color:#94A3B8; font-size:13px; z-index:10;">03 / 08</div>
+                <div class="slide-container">
+                    <div class="ui-header"></div><div class="ui-accent"></div>
+                    <div class="ui-meta-left">03&nbsp;&nbsp;·&nbsp;&nbsp;The Market Reality</div>
+                    <div class="display" style="position:absolute; left:100px; top:160px; font-size:74px; color:var(--schulich-blue);">Our graduates' core tasks<br>are now in high-exposure zones.</div>
+                    <!-- Simplified Chart Logic -->
+                    <div style="position:absolute; left:480px; top:460px; width:74.5%; height:64px; background:var(--studiot-green); max-width:1000px;"></div>
+                    <div class="display" style="position:absolute; left:1490px; top:460px; font-size:48px; color:var(--schulich-blue);">74.5%</div>
+                    <div class="ui-footer-line"></div>
+                    <div class="ui-page-num">03 / 08</div>
                 </div>
             </section>
 
-            <!-- SLIDE 5: DELIVERABLES (Redesigner App & studio-t Hub) -->
+            <!-- SLIDE 06: THE CAPACITY REALITY -->
             <section>
-                <div class="slide-container" style="position:relative; width:1920px; height:1080px; overflow:hidden; background:#FFFFFF;">
-                    <div style="position:absolute; left:0; top:0; width:1920px; height:64px; background:#0F4C92; z-index:1;"></div>
-                    <div class="display" style="position:absolute; left:100px; top:160px; width:1700px; color:#0F4C92; font-size:74px;">Three institutional assets, built in seven months.</div>
-                    
-                    <!-- Card 1: Redesigner App Beta -->
-                    <div style="position:absolute; left:100px; top:440px; width:560px; height:560px; background:#0F4C92; z-index:1;"></div>
-                    <div class="display" style="position:absolute; left:132px; top:510px; width:500px; color:#FFFFFF; font-size:44px;">Redesigner App Beta</div>
-                    
-                    <!-- Card 2: studio-t Hub -->
-                    <div style="position:absolute; left:680px; top:440px; width:560px; height:560px; background:#0F4C92; z-index:1;"></div>
-                    <div class="display" style="position:absolute; left:712px; top:510px; width:500px; color:#FFFFFF; font-size:44px;">studio-t Web Hub</div>
-
-                    <div class="mono" style="position:absolute; left:1740px; top:1048px; color:#6B7C93; font-size:14px; z-index:10;">05 / 08</div>
+                <div class="slide-container" style="background:var(--schulich-blue);">
+                    <div style="position:absolute; width:100%; height:100%; background-image:linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size:80px 80px;"></div>
+                    <div class="ui-header" style="background:#0A3B73;"></div><div class="ui-accent"></div>
+                    <div class="display" style="position:absolute; left:80px; top:280px; font-size:660px; color:#fff; line-height:0.92;">456</div>
+                    <div style="position:absolute; right:100px; top:570px; width:504px; height:330px; background:var(--studiot-green); padding:40px; box-sizing:border-box;">
+                        <div class="display" style="font-size:148px; color:#fff;">228%</div>
+                        <div style="color:#fff; font-size:19px; font-weight:500;">Annual output delivered in 7 months.</div>
+                    </div>
+                    <div class="ui-page-num" style="color:#C9D9EF;">06 / 08</div>
                 </div>
             </section>
 
-            <!-- SLIDE 6: CAPACITY REALITY (228% Restored) -->
+            <!-- SLIDE 08: CLOSING VISION -->
             <section>
-                <div class="slide-container" style="position:relative; width:1920px; height:1080px; overflow:hidden; background:#0F4C92;">
-                    <div style="position:absolute; left:0; top:0; width:1920px; height:1080px; background:radial-gradient(ellipse at 25% 50%, rgba(34,160,74,0.22) 0%, rgba(15,76,146,0) 55%); z-index:1;"></div>
-                    <div class="display" style="position:absolute; left:80px; top:280px; width:1220px; color:#FFFFFF; font-size:660px; line-height:0.92;">456</div>
-                    <div class="display" style="position:absolute; left:1360px; top:628px; width:440px; color:#FFFFFF; font-size:148px;">228%</div>
-                    <div class="mono" style="position:absolute; left:1740px; top:1024px; color:#C9D9EF; font-size:14px; z-index:10;">06 / 08</div>
-                </div>
-            </section>
-
-            <!-- SLIDE 8: CLOSING (StudioT Vision) -->
-            <section>
-                <div class="slide-container" style="position:relative; width:1920px; height:1080px; overflow:hidden; background:#0F4C92;">
-                    <div style="position:absolute; left:0; top:0; width:1920px; height:1080px; background:radial-gradient(ellipse at 85% 75%, rgba(34,160,74,0.32) 0%, rgba(34,160,74,0.08) 32%, rgba(15,76,146,0) 62%), radial-gradient(ellipse at 10% 15%, rgba(124,210,150,0.18) 0%, rgba(15,76,146,0) 50%); z-index:1;"></div>
-                    
-                    <!-- Closing Logo -->
-                    <div style="position:absolute; left:100px; top:80px; width:260px; height:180px; background-image:url('assets/SSB-InnovationStudio-VERT-COL.png'); background-size:contain; background-repeat:no-repeat; background-position:left center; background-color:#FFFFFF; padding:18px; box-sizing:border-box; border-radius:8px; z-index:5;"></div>
-                    
-                    <div class="display" style="position:absolute; left:100px; top:540px; width:1720px; color:#FFFFFF; font-size:74px;">studio-t is no longer a pilot; it is the <span style="color:#7CD296;">essential technical infrastructure</span> for Schulich's academic survival.</div>
-                    <div class="mark" style="position:absolute; left:1400px; top:130px; width:420px; color:#FFFFFF; font-size:26px; text-align:right; z-index:10;">studio<span style="color:#22A04A;">-</span>t<span style="color:#22A04A;">.</span></div>
+                <div class="slide-container" style="background:var(--schulich-blue);">
+                    <div style="position:absolute; width:100%; height:100%; background:radial-gradient(ellipse at 85% 75%, rgba(34,160,74,0.32) 0%, transparent 62%);"></div>
+                    <div style="position:absolute; left:100px; top:80px; width:260px; height:180px; background:#fff; border-radius:8px; padding:20px; box-sizing:border-box;">
+                        <img src="assets/SSB-InnovationStudio-VERT-COL.png" style="width:100%; height:100%; object-fit:contain;">
+                    </div>
+                    <div class="display" style="position:absolute; left:100px; top:540px; font-size:74px; color:#fff; width:1720px;">studio-t is no longer a pilot;<br>it is the <span style="color:#7CD296;">essential technical infrastructure</span> for Schulich's academic survival.</div>
+                    <div class="ui-page-num" style="color:#C9D9EF;">08 / 08</div>
                 </div>
             </section>
 
         </div>
     </div>
 
-    <!-- Reveal.js Scripts -->
     <script src="dist/reveal.js"></script>
-    <script src="dist/plugin/notes.js"></script>
-    <script src="dist/plugin/markdown.js"></script>
-    <script src="dist/plugin/highlight.js"></script>
     <script>
         Reveal.initialize({
             hash: true,
-            // These values must match your slide-container dimensions
-            width: 1920,
-            height: 1080,
+            width: 1920, height: 1080,
             margin: 0,
-            minScale: 0.1,
-            maxScale: 2.0,
-            plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+            minScale: 0.2, maxScale: 1.0,
+            center: false,
+            disableLayout: true
         });
     </script>
 </body>
