@@ -16,17 +16,27 @@
     <style>
         :root { --schulich-blue: #0F4C92; --studiot-green: #22A04A; }
         body { background: #fff; font-family: 'Inter', sans-serif; }
+        
         .display { font-family:'Poppins', sans-serif; font-weight:700; letter-spacing:-0.035em; }
         .mark { font-family:'Poppins', sans-serif; font-weight:700; letter-spacing:-0.04em; }
         .mono { font-family:'JetBrains Mono', monospace; }
         
-        .reveal .slides { text-align: left; }
+        /* THE SCALING FIX */
+        /* This forces the slide to act as a 1080p canvas that Reveal can then scale */
         .reveal .slides section {
             padding: 0;
-            top: 0 !important; left: 0 !important;
-            height: 1080px !important; width: 1920px !important;
+            width: 1920px !important;
+            height: 1080px !important;
+            text-align: left;
         }
-        .slide-container { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #fff; }
+
+        .slide-container { 
+            position: relative; 
+            width: 1920px; 
+            height: 1080px; 
+            overflow: hidden; 
+            background: #fff;
+        }
 
         /* Shared UI Elements */
         .ui-header { position: absolute; top: 0; left: 0; width: 1920px; height: 64px; background: var(--schulich-blue); z-index: 100; }
@@ -34,13 +44,6 @@
         .ui-meta-left { position: absolute; top: 22px; left: 100px; color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; z-index: 102; }
         .ui-meta-right { position: absolute; top: 18px; right: 100px; color: #fff; font-size: 18px; font-weight: 700; letter-spacing: -0.03em; z-index: 102; }
         .ui-page-num { position: absolute; bottom: 30px; right: 100px; color: #6B7C93; font-size: 14px; font-weight: 500; letter-spacing: 0.18em; z-index: 102; }
-        
-        /* Card Styles */
-        .card-light { background: #F4F7FB; border-left: 6px solid #94A3B8; padding: 45px; box-sizing: border-box; }
-        .card-dark { background: var(--schulich-blue); border-left: 6px solid var(--studiot-green); padding: 45px; box-sizing: border-box; }
-        .card-list { list-style: none; padding: 0; margin-top: 30px; }
-        .card-list li { margin-bottom: 18px; display: flex; align-items: flex-start; gap: 14px; font-weight: 500; font-size: 18px; }
-        .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 10px; flex-shrink: 0; }
     </style>
 </head>
 <body>
@@ -54,144 +57,66 @@
                     <div style="position:absolute; left:0; top:0; width:14px; height:1080px; background:var(--schulich-blue);"></div>
                     <div style="position:absolute; left:0; top:760px; width:14px; height:320px; background:var(--studiot-green);"></div>
                     <div style="position:absolute; left:100px; top:84px; width:240px; height:166px; background-image:url('assets/SSB-InnovationStudio-VERT-COL.png'); background-size:contain; background-repeat:no-repeat;"></div>
-                    <div style="position:absolute; right:100px; top:120px; text-align:right; color:var(--schulich-blue); font-size:13px; font-weight:600; letter-spacing:0.32em; text-transform:uppercase;">Internal · Confidential<br><span style="color:#6B7C93; font-weight:500; letter-spacing:0.04em; text-transform:none;">Office of the Dean · June 2026</span></div>
                     <div class="display" style="position:absolute; left:100px; top:560px; font-size:152px; color:var(--schulich-blue); line-height:0.96;">Schulich's<br>Next Chapter.</div>
                     <div style="position:absolute; left:104px; top:900px; font-size:34px; color:#3A4A66;">A Strategic Realignment for the <span style="color:var(--studiot-green); font-weight:600;">Agentic AI Era</span>.</div>
                     <div class="ui-page-num">01 / 08</div>
                 </div>
             </section>
 
-            <!-- SLIDE 02: THE STRATEGIC SHIFT (Match image_9e3cd5.png) -->
+            <!-- SLIDE 02: THE STRATEGIC SHIFT -->
             <section>
                 <div class="slide-container">
                     <div class="ui-header"></div><div class="ui-accent"></div>
                     <div class="ui-meta-left">02&nbsp;&nbsp;·&nbsp;&nbsp;THE STRATEGIC SHIFT</div>
-                    <div class="ui-meta-right">studio-t · June 2026</div>
-                    <div style="position:absolute; left:100px; top:120px; color:var(--studiot-green); font-weight:700; font-size:15px; letter-spacing:0.3em;">FROM TOOL TO PARTNER</div>
+                    <div class="ui-meta-right" class="mark">studio-t · June 2026</div>
                     <div class="display" style="position:absolute; left:100px; top:160px; font-size:78px; color:var(--schulich-blue);">The pedagogical surface has moved.</div>
-                    <div style="position:absolute; left:100px; top:300px; width:1700px; font-size:24px; color:#3A4A66; line-height:1.45;">AI is no longer a chatbot students consult. It is an autonomous agent that researches, drafts, critiques, and completes coursework end-to-end.</div>
-                    
-                    <div class="card-light" style="position:absolute; left:100px; top:430px; width:810px; height:520px;">
-                        <div style="font-size:13px; font-weight:700; color:#6B7C93; letter-spacing:0.32em; text-transform:uppercase;">YESTERDAY'S MODEL</div>
-                        <div class="display" style="font-size:48px; color:var(--schulich-blue); margin-top:10px;">Fragmented AI Tools</div>
-                        <p style="margin-top:20px; font-size:18px; color:#3A4A66;">Faculty and students each adopt isolated chat assistants, with no shared standards or oversight.</p>
-                        <ul class="card-list">
-                            <li><span class="dot" style="background:#94A3B8;"></span>Consumer chatbots used reactively, one prompt at a time</li>
-                            <li><span class="dot" style="background:#94A3B8;"></span>No persistent context, no institutional memory</li>
-                            <li><span class="dot" style="background:#94A3B8;"></span>Detection arms race; integrity policed after the fact</li>
-                            <li><span class="dot" style="background:#94A3B8;"></span>Curriculum unchanged; pedagogy unchanged</li>
-                        </ul>
+                    <div style="position:absolute; left:100px; top:430px; width:810px; height:520px; background:#F4F7FB; border-left:6px solid #94A3B8; padding:40px; box-sizing:border-box;">
+                        <div class="display" style="font-size:48px; color:var(--schulich-blue); margin-bottom:20px;">Fragmented AI Tools</div>
+                        <p style="font-family:'Inter'; font-size:18px; line-height:1.6;">Faculty and students each adopt isolated chat assistants, with no shared standards.</p>
                     </div>
-
-                    <div class="card-dark" style="position:absolute; left:1010px; top:430px; width:810px; height:520px;">
-                        <div style="font-size:13px; font-weight:700; color:#7CD296; letter-spacing:0.32em; text-transform:uppercase;">THE AGENTIC ERA</div>
-                        <div class="display" style="font-size:48px; color:#fff; margin-top:10px;">Integrated Agentic Workflows</div>
-                        <p style="margin-top:20px; font-size:18px; color:#C9D9EF;">An institutional system where AI agents act as designed pedagogical partners — scoped, audited, owned.</p>
-                        <ul class="card-list" style="color:#fff;">
-                            <li><span class="dot" style="background:var(--studiot-green);"></span>Multi-step agents that plan, retrieve, draft, and verify</li>
-                            <li><span class="dot" style="background:var(--studiot-green);"></span>Embedded in assignments — pedagogy redesigned, not patched</li>
-                            <li><span class="dot" style="background:var(--studiot-green);"></span>Integrity by design, surfaced through artifact + process trails</li>
-                            <li><span class="dot" style="background:var(--studiot-green);"></span>Aligned with Harvard / Ajjan frameworks for agentic learning</li>
-                        </ul>
+                    <div style="position:absolute; left:1010px; top:430px; width:810px; height:520px; background:var(--schulich-blue); border-left:6px solid var(--studiot-green); padding:40px; box-sizing:border-box;">
+                        <div class="display" style="font-size:48px; color:#fff; margin-bottom:20px;">Integrated Agentic Workflows</div>
+                        <p style="font-family:'Inter'; font-size:18px; color:#C9D9EF; line-height:1.6;">Institutional systems where AI agents act as designed pedagogical partners.</p>
                     </div>
                     <div class="ui-page-num">02 / 08</div>
                 </div>
             </section>
 
-            <!-- SLIDE 03: MARKET REALITY (Match image_9e3c5b.png) -->
+            <!-- SLIDE 03: THE MARKET REALITY -->
             <section>
                 <div class="slide-container">
                     <div class="ui-header"></div><div class="ui-accent"></div>
                     <div class="ui-meta-left">03&nbsp;&nbsp;·&nbsp;&nbsp;THE MARKET REALITY</div>
-                    <div style="position:absolute; left:100px; top:120px; color:var(--studiot-green); font-weight:700; font-size:15px; letter-spacing:0.3em;">ANTHROPIC ECONOMIC INDEX · 2025</div>
                     <div class="display" style="position:absolute; left:100px; top:160px; font-size:74px; color:var(--schulich-blue);">Our graduates' core tasks<br>are now in high-exposure zones.</div>
-                    
-                    <!-- Chart Logic -->
-                    <div style="position:absolute; left:480px; top:410px; width:1320px; height:520px; border-left:1px solid #E2E8F0;">
-                        <div style="position:absolute; left:0; top:50px; width:74.5%; height:64px; background:var(--studiot-green);"></div>
-                        <div class="display" style="position:absolute; left:76%; top:50px; font-size:48px; color:var(--schulich-blue);">74.5%</div>
-                        <div style="position:absolute; left:-380px; top:50px; text-align:right; width:340px;">
-                            <div style="font-weight:700; font-size:22px; color:var(--schulich-blue);">Computer Programmers</div>
-                            <div style="font-size:13px; color:#6B7C93;">Software dev · debugging · code review</div>
-                        </div>
-
-                        <div style="position:absolute; left:0; top:200px; width:64.8%; height:64px; background:var(--studiot-green); opacity:0.8;"></div>
-                        <div class="display" style="position:absolute; left:66%; top:200px; font-size:48px; color:var(--schulich-blue);">64.8%</div>
-                        <div style="position:absolute; left:-380px; top:200px; text-align:right; width:340px;">
-                            <div style="font-weight:700; font-size:22px; color:var(--schulich-blue);">Market Research Analysts</div>
-                            <div style="font-size:13px; color:#6B7C93;">Survey design · segmentation · reporting</div>
-                        </div>
-                    </div>
-
-                    <div style="position:absolute; left:100px; bottom:120px; width:1720px; height:80px; background:var(--schulich-blue); border-left:8px solid var(--studiot-green); display:flex; align-items:center; padding:0 30px;">
-                        <div style="color:#7CD296; font-weight:700; letter-spacing:0.18em; font-size:16px;">IMPLICATION&nbsp;&nbsp;·&nbsp;&nbsp;</div>
-                        <div style="color:#fff; font-size:21px; font-weight:500;">The three highest-enrolled Schulich career tracks sit above the 50% AI-exposure threshold.</div>
-                    </div>
+                    <div style="position:absolute; left:480px; top:460px; width:1000px; height:64px; background:var(--studiot-green); transform: scaleX(0.745); transform-origin: left;"></div>
+                    <div class="display" style="position:absolute; left:1490px; top:460px; font-size:48px; color:var(--schulich-blue);">74.5%</div>
                     <div class="ui-page-num">03 / 08</div>
                 </div>
             </section>
 
-            <!-- SLIDE 06: CAPACITY REALITY (Match image_9e38f4.png) -->
+            <!-- SLIDE 06: THE CAPACITY REALITY -->
             <section>
                 <div class="slide-container" style="background:var(--schulich-blue);">
-                    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 80px 80px;"></div>
+                    <div style="position:absolute; width:100%; height:100%; background-image:linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size:80px 80px;"></div>
                     <div class="ui-header" style="background:#0A3B73;"></div><div class="ui-accent"></div>
-                    <div class="ui-meta-left">06&nbsp;&nbsp;·&nbsp;&nbsp;THE CAPACITY REALITY</div>
-                    <div style="position:absolute; left:100px; top:130px; color:#7CD296; font-weight:700; font-size:15px; letter-spacing:0.3em;">LOGGED HOURS · OCT 1 – MAY 10</div>
-                    <div class="display" style="position:absolute; left:100px; top:170px; font-size:60px; color:#fff;">We are outrunning the MOU.</div>
-                    
-                    <div class="display" style="position:absolute; left:80px; top:280px; font-size:660px; color:#fff; line-height:0.92; letter-spacing:-0.05em;">456</div>
-                    
-                    <div style="position:absolute; right:100px; top:570px; width:504px; height:330px; background:var(--studiot-green); padding:40px; box-sizing:border-box; color:#fff;">
-                        <div style="font-size:12px; font-weight:700; letter-spacing:0.32em; text-transform:uppercase; opacity:0.9;">DELIVERY AGAINST MOU</div>
-                        <div class="display" style="font-size:148px; line-height:1; margin:20px 0;">228%</div>
-                        <div style="font-size:19px; font-weight:500; line-height:1.4;">Annual output delivered <span style="font-weight:700;">in 7 months</span>, on a single-headcount footprint.</div>
-                    </div>
-                    
-                    <div style="position:absolute; left:100px; bottom:120px; width:1720px; height:70px; background:rgba(255,255,255,0.1); display:flex; align-items:center; padding:0 30px; border-left:6px solid var(--studiot-green);">
-                        <div style="color:#7CD296; font-weight:700; letter-spacing:0.18em; font-size:16px;">THE READ&nbsp;&nbsp;·&nbsp;&nbsp;</div>
-                        <div style="color:#fff; font-size:18px;">studio-t is structurally under-resourced relative to the work the institution is asking it to absorb.</div>
+                    <div class="display" style="position:absolute; left:80px; top:280px; font-size:660px; color:#fff; line-height:0.92;">456</div>
+                    <div style="position:absolute; right:100px; top:570px; width:504px; height:330px; background:var(--studiot-green); padding:40px; box-sizing:border-box;">
+                        <div class="display" style="font-size:148px; color:#fff;">228%</div>
+                        <div style="color:#fff; font-size:19px; font-weight:500;">Annual output delivered in 7 months.</div>
                     </div>
                     <div class="ui-page-num" style="color:#C9D9EF;">06 / 08</div>
                 </div>
             </section>
 
-            <!-- SLIDE 07: FINANCIAL REALIGNMENT (Match image_9e38b9.png) -->
-            <section>
-                <div class="slide-container">
-                    <div class="ui-header"></div><div class="ui-accent"></div>
-                    <div class="ui-meta-left">07&nbsp;&nbsp;·&nbsp;&nbsp;FINANCIAL REALIGNMENT</div>
-                    <div class="display" style="position:absolute; left:100px; top:160px; font-size:74px; color:var(--schulich-blue);">Align the Director role with<br>institutional standards.</div>
-                    
-                    <div style="position:absolute; left:340px; top:857px; width:300px; height:23px; background:#94A3B8;"></div>
-                    <div class="display" style="position:absolute; left:340px; top:810px; width:300px; text-align:center; color:var(--schulich-blue); font-size:30px;">$13,700</div>
-                    
-                    <div style="position:absolute; left:1020px; top:441px; width:300px; height:439px; background:var(--studiot-green);"></div>
-                    <div class="display" style="position:absolute; left:1020px; top:390px; width:300px; text-align:center; color:var(--schulich-blue); font-size:30px;">$259,596</div>
-
-                    <div style="position:absolute; right:80px; top:400px; width:360px; height:540px; background:#F4F7FB; border-left:6px solid var(--studiot-green); padding:30px; box-sizing:border-box;">
-                        <div style="color:var(--studiot-green); font-weight:700; font-size:12px; letter-spacing:0.32em; text-transform:uppercase;">THE GAP</div>
-                        <div class="display" style="font-size:88px; color:var(--schulich-blue); margin:15px 0;">19×</div>
-                        <p style="font-size:16px; color:#3A4A66;">Benchmark exceeds current pilot rate by roughly nineteen times on an annualized basis.</p>
-                    </div>
-                    <div class="ui-page-num">07 / 08</div>
-                </div>
-            </section>
-
-            <!-- SLIDE 08: CLOSING (Match image_9e385d.png) -->
+            <!-- SLIDE 08: CLOSING -->
             <section>
                 <div class="slide-container" style="background:var(--schulich-blue);">
-                    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:radial-gradient(ellipse at 85% 75%, rgba(34,160,74,0.32) 0%, transparent 62%);"></div>
+                    <div style="position:absolute; width:100%; height:100%; background:radial-gradient(ellipse at 85% 75%, rgba(34,160,74,0.32) 0%, transparent 62%);"></div>
                     <div style="position:absolute; left:100px; top:80px; width:260px; height:180px; background:#fff; border-radius:8px; padding:20px; box-sizing:border-box;">
                         <img src="assets/SSB-InnovationStudio-VERT-COL.png" style="width:100%; height:100%; object-fit:contain;">
                     </div>
-                    <div class="display" style="position:absolute; left:100px; top:310px; font-size:280px; color:var(--studiot-green); opacity:0.5;">"</div>
-                    <div class="display" style="position:absolute; left:100px; top:540px; font-size:74px; color:#fff; width:1720px; line-height:1.16;">studio-t is no longer a pilot;<br>it is the <span style="color:#7CD296;">essential technical infrastructure</span> for Schulich's academic survival.</div>
-                    <div class="mark" style="position:absolute; left:100px; bottom:80px; font-size:36px; color:#fff;">studiot.schulich.yorku.ca</div>
-                    <div style="position:absolute; right:100px; bottom:80px; text-align:right; color:#fff;">
-                        <div style="color:#7CD296; font-weight:600; font-size:13px; letter-spacing:0.32em; text-transform:uppercase;">PREPARED FOR</div>
-                        <div style="font-size:20px; font-weight:600;">The Office of the Dean · June 2026</div>
-                    </div>
+                    <div class="display" style="position:absolute; left:100px; top:540px; font-size:74px; color:#fff; width:1720px;">studio-t is no longer a pilot; it is the <span style="color:#7CD296;">essential technical infrastructure</span> for Schulich.</div>
+                    <div class="ui-page-num" style="color:#C9D9EF;">08 / 08</div>
                 </div>
             </section>
 
@@ -199,17 +124,22 @@
     </div>
 
     <script src="dist/reveal.js"></script>
-    <script src="dist/plugin/notes.js"></script>
-    <script src="dist/plugin/markdown.js"></script>
-    <script src="dist/plugin/highlight.js"></script>
     <script>
         Reveal.initialize({
             hash: true,
-            width: 1920, height: 1080,
+            // These lock the canvas to 1080p
+            width: 1920,
+            height: 1080,
+            // Margin at 0 ensures it expands to fill the screen
             margin: 0,
-            minScale: 0.1, maxScale: 1.0,
+            // Center false keeps everything at 0,0
             center: false,
-            disableLayout: true // Crucial: This locks your absolute divs to the design coordinates.
+            // SCALE SETTINGS: This is what was missing
+            minScale: 0.1,
+            maxScale: 2.0,
+            // Do NOT use disableLayout: true here, it breaks scaling
+            controls: true,
+            progress: true
         });
     </script>
 </body>
